@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rank Glygh - Generator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="ambient-background"></div>
+
+    <div class="app-layout">
+      <aside class="sidebar glass-card custom-scrollbar">
+        <header class="brand">
+          <div class="logo-icon">👑</div>
+          <div>
+            <h1>Rank<span>Glygh</span></h1>
+            <p>Generator</p>
+          </div>
+        </header>
+
+        <div class="control-section">
+          <h2 class="section-title"><svg width="18" height="18"
+              viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2"><path
+                d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path
+                d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+            Content</h2>
+          <div class="input-group">
+            <input id="textInput" type="text" class="modern-input"
+              placeholder="Enter rank text..." value="MVP+">
+          </div>
+        </div>
+
+        <div class="control-section">
+          <h2 class="section-title"><svg width="18" height="18"
+              viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2"><circle cx="13.5" cy="6.5" r=".5" /><circle
+                cx="17.5" cy="10.5" r=".5" /><circle cx="8.5" cy="7.5"
+                r=".5" /><circle cx="6.5" cy="12.5" r=".5" /><path
+                d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z" /></svg>
+            Appearance</h2>
+
+          <div class="color-row">
+            <span class="label">Text Color (Master)</span>
+            <div class="color-picker-wrapper">
+              <input type="color" id="textColorPicker" value="#ffaa00">
+              <input type="text" id="textColorHex" class="hex-input"
+                value="#ffaa00">
+            </div>
+          </div>
+
+          <div class="magic-sync-card">
+            <label class="switch">
+              <input type="checkbox" id="autoSyncToggle" checked>
+              <span class="slider"></span>
+            </label>
+            <div class="label-text">
+              <span>🪄 Smart Auto-Theme</span>
+              <small>Automatically mixes Background & Borders based on Text
+                Color.</small>
+            </div>
+          </div>
+
+          <details class="advanced-colors">
+            <summary>Advanced Adjustments</summary>
+            <div class="advanced-content">
+              <div class="color-row">
+                <span class="label">Background</span>
+                <div class="color-picker-wrapper">
+                  <input type="color" id="bgColorPicker" value="#aa5500">
+                  <input type="text" id="bgColorHex" class="hex-input"
+                    value="#aa5500">
+                </div>
+              </div>
+
+              <div class="color-row">
+                <span class="label">Border <label class="switch"><input
+                      type="checkbox" id="showBorder" checked><span
+                      class="slider"></span></label></span>
+                <div class="color-picker-wrapper">
+                  <input type="color" id="borderColorPicker" value="#883300">
+                  <input type="text" id="borderColorHex" class="hex-input"
+                    value="#883300">
+                </div>
+              </div>
+
+              <div class="color-row">
+                <span class="label">Shadow <label class="switch"><input
+                      type="checkbox" id="showShadow" checked><span
+                      class="slider"></span></label></span>
+                <div class="color-picker-wrapper">
+                  <input type="color" id="shadowColorPicker" value="#551100">
+                  <input type="text" id="shadowColorHex" class="hex-input"
+                    value="#551100">
+                </div>
+              </div>
+
+              <div class="color-row offset-row">
+                <span class="label">Shadow Offset</span>
+                <div class="offset-inputs">
+                  <input type="number" id="shadowOffsetX" class="num-input"
+                    value="1" title="X-Axis">
+                  <input type="number" id="shadowOffsetY" class="num-input"
+                    value="1" title="Y-Axis">
+                </div>
+              </div>
+            </div>
+          </details>
+        </div>
+
+        <div class="control-section preset-section">
+          <h2 class="section-title"><svg width="18" height="18"
+              viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2"><rect x="3" y="3" width="7"
+                height="7"></rect><rect x="14" y="3" width="7"
+                height="7"></rect><rect x="14" y="14" width="7"
+                height="7"></rect><rect x="3" y="14" width="7"
+                height="7"></rect></svg> Style Library</h2>
+          <div id="presetContainer" class="preset-container custom-scrollbar">
+          </div>
+        </div>
+      </aside>
+
+      <main class="preview-area">
+        <div class="preview-card glass-card">
+          <div class="preview-header">
+            <span>Live Workspace</span>
+
+            <div class="zoom-toolbar">
+              <button id="zoomOutBtn" class="btn-icon-small"
+                title="Zoom Out"><svg width="16" height="16" viewBox="0 0 24 24"
+                  fill="none" stroke="currentColor" stroke-width="2"><line
+                    x1="5" y1="12" x2="19" y2="12"></line></svg></button>
+              <span id="zoomDisplay" class="zoom-text">350%</span>
+              <button id="zoomInBtn" class="btn-icon-small" title="Zoom In"><svg
+                  width="16" height="16" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2"><line x1="12" y1="5"
+                    x2="12" y2="19"></line><line x1="5" y1="12" x2="19"
+                    y2="12"></line></svg></button>
+              <div class="divider"></div>
+              <button id="resetBtn" class="btn-icon-small"
+                title="Reset to Default"><svg width="16" height="16"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2"><path
+                    d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path
+                    d="M3 3v5h5"></path></svg></button>
+            </div>
+          </div>
+
+          <div class="canvas-wrapper">
+            <canvas id="canvas" class="hidden-canvas"></canvas>
+            <img id="previewImg" alt="Preview" class="pixel-img">
+          </div>
+
+          <div class="export-bar">
+            <div class="scale-select">
+              <label>Export Resolution</label>
+              <select id="exportScale" class="modern-select">
+                <option value="1" selected>1x (Pixel Perfect)</option>
+                <option value="4">4x (Small)</option>
+                <option value="8">8x (HD Format)</option>
+                <option value="16">16x (Ultra HD)</option>
+              </select>
+            </div>
+
+            <div class="action-group">
+              <button id="copyBtn" class="btn-secondary">Copy Image</button>
+              <button id="downloadBtn" class="btn-primary">Download HD</button>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <div id="toastContainer" class="toast-wrapper"></div>
+    <script src="script.js"></script>
+  </body>
+</html>
